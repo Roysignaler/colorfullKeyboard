@@ -6,8 +6,12 @@ body {
   margin: 0; /* Remove default margin */
   background: linear-gradient(220.55deg, #565656 0%, #181818 100%);
 }
+span {
+  font-size: xx-small;
+}
 
-#counter-text {
+#counter-text,
+#count {
   color: #f0f0f0;
   font-size: xx-large;
   padding-bottom: 1rem;

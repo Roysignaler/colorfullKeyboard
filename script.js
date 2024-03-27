@@ -13,6 +13,7 @@ function getRandomGradient() {
     return colorGradients[Math.floor(Math.random() * colorGradients.length)];
 }
 
+
 // Function to animate a button
 const animateButton = (id) => {
     const button = document.getElementById(id);
@@ -21,6 +22,13 @@ const animateButton = (id) => {
         button.classList.add('clicked');
         setTimeout(() => button.classList.remove('clicked'), 400); // Duration of the animation
         console.log(`Button ${id} clicked`);
+
+        // Find the span element within the button
+        const countSpan = button.querySelector('.count');
+
+        // If countSpan is empty, initialize with 0, otherwise increment
+        let count = countSpan.textContent === '' ? 0 : parseInt(countSpan.textContent, 10);
+        countSpan.textContent = ++count;
 
         // Increment the counter and update the display
         counter++;
