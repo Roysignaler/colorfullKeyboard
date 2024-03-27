@@ -1,0 +1,110 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% of the viewport height */
+  margin: 0; /* Remove default margin */
+  background: linear-gradient(220.55deg, #565656 0%, #181818 100%);
+}
+
+#counter-text {
+  color: #f0f0f0;
+  font-size: xx-large;
+  padding-bottom: 1rem;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw; /* Set keyboard width to 80% of the viewport width */
+  max-width: 1200px; /* Adjusted max width */
+  margin-bottom: 1rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Make rows fill the keyboard width */
+  margin: 5px 0; /* Spacing between rows */
+}
+
+.character {
+  margin: 2px;
+  flex: 1 1 auto; /* Adjusted for better flexibility */
+  padding: 10px 5px; /* Adjusted vertical and horizontal padding */
+  text-align: center;
+  user-select: none; /* Prevent text selection */
+  background: #f0f0f0; /* Light grey background for keys */
+  border-radius: 4px; /* Rounded corners for keys */
+  cursor: pointer;
+  margin: 2px;
+  flex-grow: 1; /* Allow buttons to grow and fill the space */
+  min-width: 30px; /* Minimum width of a button */
+  padding: 10px 0; /* Vertical padding */
+  /* Add your existing button styles here */
+}
+
+/* Specific adjustments for larger keys */
+#space {
+  flex: 0 0 46%; /* Adjusted for spacebar */
+}
+#shift,
+#shiftRight,
+#enter,
+#backspace {
+  flex: 0 0 12%; /* Adjusted for shift, enter, backspace keys */
+}
+#ctrl,
+#alt,
+#altGr,
+#ctrlRight {
+  flex: 0 0 7%; /* Adjusted for control and alt keys */
+}
+
+/* Styles for function keys and numeric keypad */
+.row-function-keys .character,
+.row-numeric-keypad .character {
+  flex: 1 1 auto;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 1000px) {
+  .keyboard {
+    max-width: 1600px; /* Increased max width */
+  }
+  .character {
+    padding: 20px 10px; /* Increased padding for larger buttons */
+  }
+}
+
+@media (min-width: 2500px) {
+  .keyboard {
+    max-width: 2000px; /* Even larger max width */
+  }
+  .character {
+    padding: 40px 20px; /* Even larger padding for buttons */
+  }
+}
+/* Keyframes and .character.clicked as before */
+@keyframes colorfulClick {
+  0% {
+    background-color: initial;
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    background-color: #34eb89; /* Example vibrant color */
+    transform: scale(2);
+    box-shadow: 0 0px 50px #34eb89;
+  }
+  100% {
+    background-color: initial;
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+.character.clicked {
+  animation: colorfulClick 0.4s ease;
+}
